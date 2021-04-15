@@ -62,7 +62,6 @@ body, h1, p, a {
     -webkit-transition: all .3s linear;
     -o-transition: all .3s linear;
     outline: none;
-
   }
 
   .button-continue{
@@ -87,7 +86,7 @@ body, h1, p, a {
     font-size: 15px;
   }
 
-  .footer-title{
+  .section-link{
     margin: 20px;
     color: #fff;
     font-size: 20px;
