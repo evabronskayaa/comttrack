@@ -62,7 +62,6 @@ body, h1, p, a {
     -webkit-transition: all .3s linear;
     -o-transition: all .3s linear;
     outline: none;
-
   }
 
   .button-continue{
@@ -77,6 +76,13 @@ body, h1, p, a {
     outline: none;
   }
 
+  .section-link{
+    margin: 20px;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 600;
+  }
+
   .footer{
     height: 70px;
     margin: auto;
@@ -86,11 +92,3 @@ body, h1, p, a {
     /*background-color: black;*/
     font-size: 15px;
   }
-
-  .footer-title{
-    margin: 20px;
-    color: #fff;
-    font-size: 20px;
-    font-weight: 600;
-  }
-
