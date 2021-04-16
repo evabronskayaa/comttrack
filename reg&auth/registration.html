@@ -21,7 +21,7 @@
     <header>
         <div class="overlay">
             <!--<h1 class="header-title">comttrack</h1>-->
-            <img class="header-title" src = "../images/logo1.png" width="150" alt="">
+            <img class="header-title" src = "../images/logo2.png" width="140" alt="">
         </div>
         <div class="overlay">
             <!--<h1 class="header-title2">company task tracker</h1>-->
@@ -33,27 +33,27 @@
             <form action="/profile">
                 <p>
                     <label>
-                        <input class="input" type="text" required placeholder="First Name" maxlength=20>
+                        <input name="first_name" type="text" required placeholder="First Name" maxlength=20>
                     </label>
                 </p>
                 <p>
                     <label>
-                        <input class="input" type="text" required placeholder="Last Name" maxlength=20>
+                        <input name="last_name" type="text" required placeholder="Last Name" maxlength=20>
                     </label>
                 </p>
                 <p>
                     <label>
-                        <input class="input" type="text" required placeholder="@username" maxlength=20>
+                        <input name="username" type="text" required placeholder="@username" maxlength=20>
                     </label>
                 </p>
                 <p>
                     <label>
-                        <input class="input" type="number" required placeholder="Invitation code">
+                        <input name="inv_code" type="number" required placeholder="Invitation code">
                     </label>
                 </p>
                 <p>
                     <label>
-                        <select class="input" style="width:355px;cursor: pointer;">
+                        <select name="department" style="width:355px;cursor: pointer;">
                             <option disabled>Choose your department</option>
                             <option>DevOps</option>
                             <option>QA</option>
@@ -65,7 +65,7 @@
                 </p>
                 <p>
                     <label>
-                        <select class="input" style="width:355px;cursor: pointer;">
+                        <select name="role" style="width:355px;cursor: pointer;">
                             <option disabled>Choose your role</option>
                             <option>Employee</option>
                             <option>Employer</option>
@@ -74,17 +74,17 @@
                 </p>
                 <p>
                     <label>
-                        <input type="password" required placeholder="Password" class="input">
+                        <input name="password" type="password" required placeholder="Password">
                     </label>
                 </p>
-                <button class="button-continue" type="submit">CONTINUE</button>
+                <button type="submit">CONTINUE</button>
             </form>
         </div>
         <p>
-          <a class="section-link" href="authorization.html">Do you have account?</a>
+          <a href="authorization.html">Do you have account?</a>
         </p>
     </section>
-    <footer class="footer">
+    <footer>
         <p>Corporate social network, messenger / task-manager</p>
         <p>Made by students of IIT CSU</p>
     </footer>
