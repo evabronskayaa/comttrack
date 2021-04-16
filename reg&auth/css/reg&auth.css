@@ -1,7 +1,14 @@
-body, h1, p, a {
+body, h1, p{
     margin: 0;
     font-size: 100%;
     font-weight: normal;
+  }
+
+  a{
+    margin: 20px;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 600;
   }
 
   body {
@@ -17,7 +24,7 @@ body, h1, p, a {
   }
 
   .header-title {
-    margin: 20px auto 5px;
+    margin: 35px auto 20px;
     font-size: 55px;
     color: #ffffff;
   }
@@ -49,7 +56,7 @@ body, h1, p, a {
     font-weight: 600;
   }
 
-  .input{
+  input, select {
     width: 350px;
     height: 35px;
     background-color: #fff;
@@ -64,7 +71,7 @@ body, h1, p, a {
     outline: none;
   }
 
-  .button-continue{
+  button{
     margin: 7px auto 5px;
     font-size: 15px;
     font-weight: 600;
@@ -76,19 +83,10 @@ body, h1, p, a {
     outline: none;
   }
 
-  .section-link{
-    margin: 20px;
-    color: #fff;
-    font-size: 20px;
-    font-weight: 600;
-  }
-
-  .footer{
+  footer{
     height: 70px;
     margin: auto;
-    /*padding-top: 35px;*/
     color: #a1a4ad;
     text-align: center;
-    /*background-color: black;*/
     font-size: 15px;
   }
