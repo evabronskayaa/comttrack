@@ -4,15 +4,15 @@ body, h1, p{
     font-weight: normal;
   }
 
+  body {
+    font-family: 'Helvetica', 'Arial', sans-serif;
+  }
+
   a{
     margin: 20px;
     color: #fff;
     font-size: 20px;
     font-weight: 600;
-  }
-
-  body {
-    font-family: 'Helvetica', 'Arial', sans-serif;
   }
 
   .overlay {
@@ -75,17 +75,23 @@ body, h1, p{
     margin: 7px auto 5px;
     font-size: 15px;
     font-weight: 600;
-    background-color: #877495;
+    background-color: rgba(103, 103, 156, 1);
     color: #fff;
-    padding: 15px 55px;
-    border-radius: 10px;
+    padding: 15px 45px;
     border-color: #a1a4ad;
+    background-image: linear-gradient(45deg, #6ab1d7 0%, rgba(201, 178, 248, 0.73) 50%, #001747 100%);
+    background-position: 100% 0;
+    background-size: 200% 200%;
+    border-radius: 10px;
     outline: none;
+    cursor: pointer;
+    /*
+    border: 2px solid #a1a4ad;
+    box-shadow: 0 16px 32px 0 rgba(0, 40, 120, .35);*/
   }
 
   footer{
     height: 70px;
-    margin: auto;
     color: #a1a4ad;
     text-align: center;
     font-size: 15px;
