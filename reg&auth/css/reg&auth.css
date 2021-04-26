@@ -4,15 +4,15 @@ body, h1, p{
     font-weight: normal;
   }
 
+  body {
+    font-family: 'Helvetica', 'Arial', sans-serif;
+  }
+
   a{
     margin: 20px;
     color: #fff;
     font-size: 20px;
     font-weight: 600;
-  }
-
-  body {
-    font-family: 'Helvetica', 'Arial', sans-serif;
   }
 
   .overlay {
@@ -92,7 +92,6 @@ body, h1, p{
 
   footer{
     height: 70px;
-    margin: auto;
     color: #a1a4ad;
     text-align: center;
     font-size: 15px;
