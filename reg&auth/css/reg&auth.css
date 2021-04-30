@@ -6,6 +6,14 @@ body, h1, p{
 
   body {
     font-family: 'Helvetica', 'Arial', sans-serif;
+
+    background: url(https://psv4.userapi.com/c520036/u191589200/docs/d13/61774c78d4c8/source.gif?extra=9yKEC2Ia8rL2d5RkKhn1jz2mpp3B0HPI4OBcjZ_oS_5S71U06xXbBppyNyWQELMVryeO9xBH7XDeG4R3B0qHPLfh_3BVBkKWty267kyaOjLJUZ_kf0-ua8FAaXcSYWwtzCi8nbrlg4_Ph2k73FYF-tRE_w) no-repeat;
+    margin: 0; /* Убираем отступы */
+    height: 100%; /* Высота страницы */
+    -webkit-background-size: cover; /* Safari 3.1+ и Chrome 4.0+ */
+    -moz-background-size: cover; /* Firefox 3.6+ */
+    -o-background-size: cover; /* Opera 9.6+ */
+    background-size: cover;
   }
 
   a{
@@ -85,8 +93,7 @@ body, h1, p{
     border-radius: 10px;
     outline: none;
     cursor: pointer;
-    /*
-    border: 2px solid #a1a4ad;
+    /*border: 2px solid #a1a4ad;
     box-shadow: 0 16px 32px 0 rgba(0, 40, 120, .35);*/
   }
 
