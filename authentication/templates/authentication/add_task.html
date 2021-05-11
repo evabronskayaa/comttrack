@@ -1,51 +1,43 @@
 {% load static %}
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>comttrack | Registration</title>
-    <link rel="stylesheet" href = "{% static 'authentication/css/reg&auth.css' %}">
-    <link rel="icon" type="image" href="../images/icon1.png">
-    <style>
-       BODY {
-           background: url(../images/source.gif) no-repeat;
-           margin: 0; /* Убираем отступы */
-           height: 100%; /* Высота страницы */
-           -webkit-background-size: cover; /* Safari 3.1+ и Chrome 4.0+ */
-           -moz-background-size: cover; /* Firefox 3.6+ */
-           -o-background-size: cover; /* Opera 9.6+ */
-           background-size: cover;
-       }
-  </style>
+    <link rel="stylesheet" href = "{% static 'authentication/css/tasks&messenger.css' %}">
+    <link rel="icon" type="image" href="{% static 'authentication/images/icon1.png' %}">
 </head>
 <body>
     <header>
-        <div class="overlay">
-            <!--<h1 class="header-title" >comttrack</h1>-->
-            <img class="header-title" src = "../images/logo1.png" width="150" alt="">
+        <div class="content">
+            <img class="logo" src = "{% static 'authentication/images/logo3.png' %}" width="120" alt="">
+
+            <ul class="main-menu">
+                <li class="main-menu-item"><a class="main-menu-link" href="">Messenger</a></li>
+                <li class="main-menu-item"><a class="main-menu-link" href="">Tasks</a></li>
+                <li class="main-menu-item"><a class="main-menu-link" href="#">Notifications</a>
+                    <ul class="submenu-popup" id="about-popup">
+
+                        <!-- здесь должны отображаться увеломления-->
+                    </ul>
+                </li>
+            </ul>
         </div>
-        <!--<div class="overlay">
-            <h1 class="header-title2" style="">company task tracker</h1>
-        </div>-->
     </header>
     <section class="content">
         <div class="card">
-            <h1 class="section-title">Add task</h1>
+            <h1>Tasks</h1>
+            <hr>
             <form method="post">
                 {%  csrf_token %}
                 {{ form.as_p }}
-                <p><button class="button-continue" type="submit">ADD</button></p>
+                <p><button class="button" type = "submit">ADD</button></p>
             </form>
         </div>
-        <p>
-          <a class="section-link" href="signup.html">Don't you have account?</a>
-        </p>
     </section>
     <footer class="footer">
-        <p>Corporate social network, messenger / task-manager</p>
-        <p>Made by students of IIT CSU</p>
+        <p><br>Corporate social network, messenger / task-manager<br>Made by students of IIT CSU</p>
     </footer>
 </body>
 </html>
