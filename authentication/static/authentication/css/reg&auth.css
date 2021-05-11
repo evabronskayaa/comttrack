@@ -7,8 +7,9 @@ body, h1, p{
   body {
     font-family: 'Helvetica', 'Arial', sans-serif;
     /*background: black;*/
-    background: url(https://vk.com/doc191589200_599047091?hash=c69eb370fc026982a4&dl=fbe16c79175b9bd9b6) no-repeat;
-    margin: 0; /* Убираем отступы */
+        background-repeat: no-repeat;
+        background-image: url(https://vk.com/doc191589200_599047091?hash=c69eb370fc026982a4&dl=fbe16c79175b9bd9b6&wnd=1&module=public);
+        margin: 0; /* Убираем отступы */
     height: 100%; /* Высота страницы */
     -webkit-background-size: cover; /* Safari 3.1+ и Chrome 4.0+ */
     -moz-background-size: cover; /* Firefox 3.6+ */
