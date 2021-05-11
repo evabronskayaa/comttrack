@@ -6,7 +6,16 @@ body, h1, p{
 
   body {
     font-family: 'Helvetica', 'Arial', sans-serif;
+    /*background: black;*/
+    background: url(https://vk.com/doc191589200_599047091?hash=c69eb370fc026982a4&dl=fbe16c79175b9bd9b6) no-repeat;
+    margin: 0; /* Убираем отступы */
+    height: 100%; /* Высота страницы */
+    -webkit-background-size: cover; /* Safari 3.1+ и Chrome 4.0+ */
+    -moz-background-size: cover; /* Firefox 3.6+ */
+    -o-background-size: cover; /* Opera 9.6+ */
+    background-size: cover;
   }
+
 
   a{
     margin: 20px;
@@ -56,7 +65,7 @@ body, h1, p{
     font-weight: 600;
   }
 
-  input, select {
+  input, select, textarea{
     width: 350px;
     height: 35px;
     background-color: #fff;
@@ -85,8 +94,7 @@ body, h1, p{
     border-radius: 10px;
     outline: none;
     cursor: pointer;
-    /*
-    border: 2px solid #a1a4ad;
+    /*border: 2px solid #a1a4ad;
     box-shadow: 0 16px 32px 0 rgba(0, 40, 120, .35);*/
   }
 

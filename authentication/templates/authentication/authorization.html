@@ -1,9 +1,12 @@
+{% load static %}
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>comttrack | Authorization</title>
-    <link rel="stylesheet" href = "css/reg&auth.css">
+    <title>comttrack | Registration</title>
+    <link rel="stylesheet" href = "{% static 'authentication/css/../../../tasks/reg&auth.css' %}">
     <link rel="icon" type="image" href="../images/icon1.png">
     <style>
        BODY {
@@ -21,7 +24,7 @@
     <header>
         <div class="overlay">
             <!--<h1 class="header-title" >comttrack</h1>-->
-            <img class="header-title" src = "../images/logo2.png" width="140" alt="">
+            <img class="header-title" src = "../images/logo1.png" width="150" alt="">
         </div>
         <!--<div class="overlay">
             <h1 class="header-title2" style="">company task tracker</h1>
@@ -30,23 +33,17 @@
     <section class="content">
         <div class="card">
             <h1 class="section-title">Authorization</h1>
-            <form>
-                <p>
-                    <label>
-                        <input name="username" type="text" required placeholder="Username" maxlength=20>
-                    </label>
-                </p>
-                <p>
-                    <label>
-                        <input name="password" type="password" required placeholder="Password" maxlength=20>
-                    </label>
-                </p>
-                <button type="submit">CONTINUE</button>
+            <form method="post">
+                {%  csrf_token %}
+                {{ form.as_p }}
+                <p><button class="button-continue" type="submit">CONTINUE</button></p>
             </form>
         </div>
-        <p><a href="registration.html">Don't you have account?</a></p>
+        <p>
+          <a class="section-link" href="signup.html">Don't you have account?</a>
+        </p>
     </section>
-    <footer>
+    <footer class="footer">
         <p>Corporate social network, messenger / task-manager</p>
         <p>Made by students of IIT CSU</p>
     </footer>
