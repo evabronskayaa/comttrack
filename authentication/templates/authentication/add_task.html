@@ -1,0 +1,43 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>comttrack | Registration</title>
+    <link rel="stylesheet" href = "{% static 'authentication/css/tasks&messenger.css' %}">
+    <link rel="icon" type="image" href="{% static 'authentication/images/icon1.png' %}">
+</head>
+<body>
+    <header>
+        <div class="content">
+            <img class="logo" src = "{% static 'authentication/images/logo3.png' %}" width="120" alt="">
+
+            <ul class="main-menu">
+                <li class="main-menu-item"><a class="main-menu-link" href="">Messenger</a></li>
+                <li class="main-menu-item"><a class="main-menu-link" href="">Tasks</a></li>
+                <li class="main-menu-item"><a class="main-menu-link" href="#">Notifications</a>
+                    <ul class="submenu-popup" id="about-popup">
+
+                        <!-- здесь должны отображаться увеломления-->
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </header>
+    <section class="content">
+        <div class="card">
+            <h1>Tasks</h1>
+            <hr>
+            <form method="post">
+                {%  csrf_token %}
+                {{ form.as_p }}
+                <p><button class="button" type = "submit">ADD</button></p>
+            </form>
+        </div>
+    </section>
+    <footer class="footer">
+        <p><br>Corporate social network, messenger / task-manager<br>Made by students of IIT CSU</p>
+    </footer>
+</body>
+</html>

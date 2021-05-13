@@ -1,51 +1,37 @@
 {% load static %}
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>comttrack | Registration</title>
+    <title>comttrack | Authorization</title>
     <link rel="stylesheet" href = "{% static 'authentication/css/reg&auth.css' %}">
-    <link rel="icon" type="image" href="../images/icon1.png">
-    <style>
-       BODY {
-           background: url(../images/source.gif) no-repeat;
-           margin: 0; /* Убираем отступы */
-           height: 100%; /* Высота страницы */
-           -webkit-background-size: cover; /* Safari 3.1+ и Chrome 4.0+ */
-           -moz-background-size: cover; /* Firefox 3.6+ */
-           -o-background-size: cover; /* Opera 9.6+ */
-           background-size: cover;
-       }
-  </style>
+    <link rel="icon" type="image" href="{% static 'authentication/images/icon1.png' %}">
+
 </head>
 <body>
     <header>
         <div class="overlay">
-            <!--<h1 class="header-title">comttrack</h1>-->
-            <img class="header-title" src = "../images/logo1.png" width="150" alt="">
+            <!--<h1 class="header-title" >comttrack</h1>-->
+            <img class="header-title" src = "{% static 'authentication/images/logo2.png' %}" width="140" alt="">
         </div>
-        <div class="overlay">
-            <!--<h1 class="header-title2">company task tracker</h1>-->
-        </div>
+        <!--<div class="overlay">
+            <h1 class="header-title2" style="">company task tracker</h1>
+        </div>-->
     </header>
     <section class="content">
         <div class="card">
             <h1 class="section-title">Registration</h1>
-            <form method="post" >
+            <form method="post">
                 {%  csrf_token %}
                 {{ form.as_p }}
-                <button class="button-continue" type="submit">CONTINUE</button>
+                <button type="submit">CONTINUE</button>
             </form>
         </div>
-        <p>
-          <a class="section-link" href="#">Do you have account?</a>
-        </p>
+        <p><a href="authorization.html">Do you have account?</a></p>
     </section>
-    <footer class="footer">
-        <p>Corporate social network, messenger / task-manager</p>
-        <p>Made by students of IIT CSU</p>
+    <footer>
+        <p>Corporate social network, messenger / task-manager<br>Made by students of IIT CSU</p>
     </footer>
 </body>
 </html>
