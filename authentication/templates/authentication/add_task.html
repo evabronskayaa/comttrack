@@ -168,11 +168,15 @@ ul {
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
     <header>
         <div class="content">
-            <img class="logo" src = "{% static 'authentication/images/logo3.png' %}" width="120" alt="">
-
+            <img class="logo" src = "{% static 'authentication/images/logo3.png' %}" width="110" alt="">
             <ul class="main-menu">
+<<<<<<< Updated upstream
                 <li id="noti_Container">
                     <div class="button"><a class="main-menu-link" href="#">Notifications</a></div>
+=======
+                <li class="noti_Container">
+                    <div class="button-noti"><a class="main-menu-link" href="#">Notifications</a></div>
+>>>>>>> Stashed changes
                     <div class="notifications">
                         <div style="height:250px;">
                             <!--здесь должны отображаться уведомления -->
@@ -186,7 +190,11 @@ ul {
         </div>
         <script>
             $(document).ready(function () {
+<<<<<<< Updated upstream
                 $('.button').click(function () {
+=======
+                $('.button-noti').click(function () {
+>>>>>>> Stashed changes
                     $('.notifications').fadeToggle('fast', 'linear');
                     return false
                 });
@@ -200,7 +208,11 @@ ul {
             <form method="post">
                 {%  csrf_token %}
                 {{ form.as_p }}
+<<<<<<< Updated upstream
                 <p><button class="button-add" type = "submit">ADD</button></p>
+=======
+                <p><button type = "submit">ADD</button></p>
+>>>>>>> Stashed changes
             </form>
         </div>
     </section>
