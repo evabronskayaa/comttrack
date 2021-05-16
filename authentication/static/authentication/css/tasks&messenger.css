@@ -3,9 +3,9 @@ body, h1, p {
     font-size: 100%;
     font-weight: normal;
 }
-body, textarea {
+body, textarea{
     font-family: 'Helvetica', 'Arial', sans-serif;
-    background-color: #2a2b78;
+     background-color: #2a2b78;
 }
 
 header, section{
@@ -16,11 +16,6 @@ header, section{
     margin:0 auto;
 
 }
-<<<<<<< Updated upstream
-
-
-=======
->>>>>>> Stashed changes
 #about-popup{width:217px}
 .submenu-popup{
     background:#fff;
@@ -79,7 +74,7 @@ section{
     border-radius: 10px;
     color: white;
 }
-input, select, textarea {
+input, select, textarea{
     width: 350px;
     height: 35px;
     background-color: #fff;
@@ -92,10 +87,9 @@ input, select, textarea {
     -webkit-transition: all .3s linear;
     -o-transition: all .3s linear;
     outline: none;
-    font-family: 'Helvetica', 'Arial', sans-serif;
-  }
+}
 
-  .button-add{
+  button{
     margin: 7px auto 5px;
     font-size: 15px;
     font-weight: 600;
@@ -116,11 +110,7 @@ footer{
     color: #a1a4ad;
     text-align: center;
     font-size: 15px;
-<<<<<<< Updated upstream
-    margin-top: 50px;
-=======
     margin-top: 80px;
->>>>>>> Stashed changes
 }
 
 ul {
@@ -134,26 +124,7 @@ ul li a {
     position:relative;
     cursor:pointer;
 }
-<<<<<<< Updated upstream
-#button
-{
-    cursor:pointer;
-}
-#notifications {
-    display: none;
-    width: 350px;
-    position: absolute;
-    background: #FFF;
-    border: solid 1px rgba(100, 100, 100, .20);
-    -webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, .20);
-    z-index: 0;
-}
-#notifications:before {
-    content: '';
-    display: block;
-    color: transparent;
-}
-=======
+
 .noti_Container {
         position:relative;
     }
@@ -185,7 +156,6 @@ ul li a {
         margin-top:-20px;
         margin-left:10px;
     }
->>>>>>> Stashed changes
 .seeAll {
     background: #F6F7F8;
     padding: 8px;
