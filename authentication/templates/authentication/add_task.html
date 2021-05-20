@@ -7,6 +7,17 @@
     <title>comttrack | Tasks</title>
     <link rel="stylesheet" href = "{% static 'authentication/css/tasks&messenger.css' %}">
     <link rel="icon" type="image" href="{% static 'authentication/images/icon1.png' %}">
+<style>
+    .noti {
+        color: #000000;
+        background-color: rgba(42, 43, 120, 0.1);
+        margin: 5px;
+    }
+    h5, h6{
+        margin: 5px;
+        font-weight: 200;
+    }
+</style>
 </head>
 <body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
@@ -17,10 +28,22 @@
                 <li class="noti_Container">
                     <div class="button-noti"><a class="main-menu-link" href="#">Notifications</a></div>
                     <div class="notifications">
-                        <div style="height:250px;">
+                        <div style="height:auto;">
+                            <div class = "noti">
+                                <hr>
+                                <h5>Leadership</h5>
+                                <h6>Где блять все?</h6>
+                                <hr>
+                            </div>
+                            <div class = "noti">
+                                <hr>
+                                <h5>Leadership</h5>
+                                <h6>Совещание в 15:00</h6>
+                                <hr>
+                            </div>
                             <!--здесь должны отображаться уведомления -->
                         </div>
-                        <div class="seeAll"><a href="#">See All</a></div>
+                        <div class="seeAll"><a href="notifications.html">See All</a></div>
                     </div>
                 </li>
                 <li class="main-menu-item"><a class="main-menu-link" href="#">Messenger</a></li>
@@ -36,7 +59,16 @@
             });
         </script>
     </header>
-    <section class="content">
+    <section class="content" >
+        <div class="card">
+            <h1>Added Tasks</h1>
+            <hr>
+        </div>
+        <div class="card">
+            <h1>Status of Execution</h1>
+            <hr>
+            <div></div>
+        </div>
         <div class="card">
             <h1>Tasks</h1>
             <hr>

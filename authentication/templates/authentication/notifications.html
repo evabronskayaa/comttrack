@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--Все сделано на глаз-->
+    <meta charset="UTF-8">
+    <title>comttrack | Notifications</title>
+    <link rel="stylesheet" href = "{% static 'authentication/css/tasks&messenger.css' %}">
+    <link rel="icon" type="image" href="{% static 'authentication/images/icon1.png' %}">
+</head>
+<body>
+    <header>
+        <div class="content">
+            <img class="logo" src = "{% static 'authentication/images/logo3.png' %}" width="110" alt="">
+            <ul class="main-menu">
+                <li class="noti_Container"><a class="main-menu-link" href="notifications.html">Notifications</a></li>
+                <li class="main-menu-item"><a class="main-menu-link" href="#">Messenger</a></li>
+                <li class="main-menu-item"><a class="main-menu-link" href="add_task.html">Tasks</a></li>
+            </ul>
+        </div>
+    </header>
+    <section class="content">
+        <div class="card">
+            <h1>Notifications</h1>
+            <hr>
+            <div class = "noti">
+                <hr>
+                <h5>Leadership</h5>
+                <h6>Где блять все?</h6>
+                <hr>
+            </div>
+            <div class = "noti">
+                <hr>
+                <h5>Leadership</h5>
+                <h6>Совещание в 15:00</h6>
+                <hr>
+            </div>
+            <!--здесь должны отображаться уведомления -->
+        </div>
+    </section>
+    <footer class="footer">
+        <p><br>Corporate social network, messenger / task-manager<br>Made by students of IIT CSU</p>
+    </footer>
+</body>
+</html>
