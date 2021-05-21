@@ -6,6 +6,11 @@ from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView
 
 from .forms import CustomUserCreationForm, LoginUserForm, CreateTaskForm
+from .models import Task
+
+
+def get_tasks_for(username: str):
+    return Task.objects.filter(executor__username=username)
 
 
 class SignUpView(CreateView):
@@ -27,7 +32,7 @@ def success_login(request):
 
 class TaskCreateView(CreateView):
     form_class = CreateTaskForm
-    success_url = reverse_lazy('home')
+    success_url = reverse_lazy('add_task')
     template_name = 'authentication/add_task.html'
 
     def form_valid(self, form):
