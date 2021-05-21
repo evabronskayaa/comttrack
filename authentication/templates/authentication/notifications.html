@@ -14,9 +14,9 @@
         <div class="content">
             <img class="logo" src = "{% static 'authentication/images/logo3.png' %}" width="110" alt="">
             <ul class="main-menu">
-                <li class="noti_Container"><a class="main-menu-link" href="notifications.html">Notifications</a></li>
+                <li class="noti_Container"><a class="main-menu-link" href="{% url 'notifications' %}">Notifications</a></li>
                 <li class="main-menu-item"><a class="main-menu-link" href="#">Messenger</a></li>
-                <li class="main-menu-item"><a class="main-menu-link" href="add_task.html">Tasks</a></li>
+                <li class="main-menu-item"><a class="main-menu-link" href="{% url 'add_task' %}">Tasks</a></li>
             </ul>
         </div>
     </header>

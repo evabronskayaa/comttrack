@@ -26,7 +26,7 @@
             <img class="logo" src = "{% static 'authentication/images/logo3.png' %}" width="110" alt="">
             <ul class="main-menu">
                 <li class="noti_Container">
-                    <div class="button-noti"><a class="main-menu-link" href="#">Notifications</a></div>
+                    <div class="button-noti"><a class="main-menu-link" href="{% url 'notifications' %}">Notifications</a></div>
                     <div class="notifications">
                         <div style="height:auto;">
                             <div class = "noti">
@@ -43,11 +43,11 @@
                             </div>
                             <!--здесь должны отображаться уведомления -->
                         </div>
-                        <div class="seeAll"><a href="notifications.html">See All</a></div>
+                        <div class="seeAll"><a href="{% url 'notifications' %}">See All</a></div>
                     </div>
                 </li>
                 <li class="main-menu-item"><a class="main-menu-link" href="#">Messenger</a></li>
-                <li class="main-menu-item"><a class="main-menu-link" href="#">Tasks</a></li>
+                <li class="main-menu-item"><a class="main-menu-link" href="{% url 'add_task' %}">Tasks</a></li>
             </ul>
         </div>
         <script>
