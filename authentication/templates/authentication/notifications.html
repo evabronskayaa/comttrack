@@ -8,6 +8,32 @@
     <title>comttrack | Notifications</title>
     <link rel="stylesheet" href = "{% static 'authentication/css/tasks&messenger.css' %}">
     <link rel="icon" type="image" href="{% static 'authentication/images/icon1.png' %}">
+    <style>
+        .noti{
+            width: 350px;
+            height: 25px;
+            text-align: left;
+            color: #000;
+            font-weight: 530;
+            font-size: 15px;
+        }
+        .noti_mess{
+            width: 350px;
+            text-align: left;
+            font-weight: 200;
+            font-size: 13px;
+            color: #3d3d3d;
+        }
+        .whole_noti{
+            background-color: #fff;
+            margin-bottom: 8px;
+            float: left;
+            border: 1px solid transparent;
+            border-radius: 3px;
+            -webkit-transition: all .3s linear;
+            -o-transition: all .3s linear;
+        }
+</style>
 </head>
 <body>
     <header>
@@ -21,22 +47,28 @@
         </div>
     </header>
     <section class="content">
-        <div class="card">
+        <div class="card" style = "margin-top: auto" >
             <h1>Notifications</h1>
             <hr>
-            <div class = "noti">
-                <hr>
-                <h5>Leadership</h5>
-                <h6>Где блять все?</h6>
-                <hr>
+            <div class = "whole_noti" >
+                <div class = "noti">Leadership</div>
+                <div class ="noti_mess">Где все?</div>
             </div>
-            <div class = "noti">
-                <hr>
-                <h5>Leadership</h5>
-                <h6>Совещание в 15:00</h6>
-                <hr>
+            <br>
+            <div class = "whole_noti" >
+                <div class = "noti">Leadership</div>
+                <div class ="noti_mess">Совещание в 15:00</div>
             </div>
             <!--здесь должны отображаться уведомления -->
+        </div>
+         <!--здесь руководство добавляет уведомления -->
+        <div class="card">
+            <h1>Add Notifications</h1>
+            <hr>
+            <form method="post">
+                <textarea placeholder="Description"></textarea>
+                <p><button type = "submit">ADD</button></p>
+            </form>
         </div>
     </section>
     <footer class="footer">
