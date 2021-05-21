@@ -39,3 +39,13 @@ class Task(models.Model):
 
     def get_absolute_url(self):
         return reverse('task', kwargs={'task_id': self.pk})
+
+
+class Notification(models.Model):
+    author = models.ForeignKey(CustomUser, on_delete=models.CASCADE, verbose_name="Создатель уведомления",
+                               related_name="notification_author")
+    text = models.CharField(max_length=150, verbose_name="Текст уведомления")
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.author}: {self.text}"

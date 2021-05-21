@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm, AuthenticationForm
-from .models import CustomUser, Task
+from .models import CustomUser, Task, Notification
 
 
 class CustomUserCreationForm(UserCreationForm):
@@ -98,3 +98,16 @@ class CreateTaskForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         self.task_setter = kwargs.pop('task_setter')
         super(CreateTaskForm, self).__init__(*args, **kwargs)
+
+
+class CreateNotificationForm(forms.ModelForm):
+    text = forms.CharField(label="", widget=forms.TextInput(
+        attrs={'name': 'notification_text', 'placeholder': 'Description', 'class': 'input'}))
+
+    class Meta:
+        model = Notification
+        fields = 'text'
+        
+    def __init__(self, *args, **kwargs):
+        self.author = kwargs.pop('author')
+        super(CreateNotificationForm, self).__init__(*args, **kwargs)

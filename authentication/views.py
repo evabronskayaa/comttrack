@@ -5,7 +5,7 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView
 
-from .forms import CustomUserCreationForm, LoginUserForm, CreateTaskForm
+from .forms import CustomUserCreationForm, LoginUserForm, CreateTaskForm, CreateNotificationForm
 from .models import Task
 
 
@@ -44,4 +44,21 @@ class TaskCreateView(CreateView):
     def get_form_kwargs(self, *args, **kwargs):
         kwargs = super(TaskCreateView, self).get_form_kwargs(*args, **kwargs)
         kwargs['task_setter'] = self.request.user
+        return kwargs
+
+
+class NotificationCreateForm(CreateView):
+    form_class = CreateNotificationForm
+    success_url = reverse_lazy('notifications')
+    template_name = 'authentication/notifications.html'
+
+    def form_valid(self, form):
+        self.object = form.save(commit=False)
+        self.object.author = self.request.user
+        self.object.save()
+        return HttpResponseRedirect(self.get_success_url())
+
+    def get_form_kwargs(self, *args, **kwargs):
+        kwargs = super(NotificationCreateForm, self).get_form_kwargs(*args, **kwargs)
+        kwargs['author'] = self.request.user
         return kwargs
