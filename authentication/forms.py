@@ -14,7 +14,7 @@ class CustomUserCreationForm(UserCreationForm):
         ('DevOps', 'DevOps'),
         ('ML', 'ML'),
         ('IOS', 'IOS'),
-        ('ANDROID', 'ANDROID'),
+        ('Android', 'Android'),
         ('QA', 'QA')
     )
     department = forms.ChoiceField(label="", choices=DEPARTMENTS, widget=forms.Select(
