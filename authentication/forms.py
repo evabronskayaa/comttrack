@@ -106,7 +106,7 @@ class CreateNotificationForm(forms.ModelForm):
 
     class Meta:
         model = Notification
-        fields = 'text'
+        fields = ('text',)
         
     def __init__(self, *args, **kwargs):
         self.author = kwargs.pop('author')

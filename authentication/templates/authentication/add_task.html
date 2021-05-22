@@ -8,7 +8,39 @@
     <link rel="stylesheet" href = "{% static 'authentication/css/tasks&messenger.css' %}">
     <link rel="icon" type="image" href="{% static 'authentication/images/icon1.png' %}">
 <style>
-    .noti {
+    .checkbox{
+        height: 8px;
+    }
+    footer{
+            /* Фиксированное положение */
+            left: 0; bottom: 0; /* Левый нижний угол */
+            width: 100%; /* Ширина слоя */
+    }
+    .noti{
+        width: 350px;
+        height: 25px;
+        text-align: left;
+        color: #000;
+        font-weight: 530;
+        font-size: 15px;
+    }
+    .noti_mess{
+        width: 350px;
+        text-align: left;
+        font-weight: 200;
+        font-size: 13px;
+        color: #3d3d3d;
+    }
+    .whole_noti{
+        background-color: #fff;
+        margin-bottom: 8px;
+        float: left;
+        border: 1px solid transparent;
+        border-radius: 3px;
+        -webkit-transition: all .3s linear;
+        -o-transition: all .3s linear;
+    }
+    .notification {
         color: #000000;
         background-color: rgba(42, 43, 120, 0.1);
         margin: 5px;
@@ -29,13 +61,13 @@
                     <div class="button-noti"><a class="main-menu-link" href="{% url 'notifications' %}">Notifications</a></div>
                     <div class="notifications">
                         <div style="height:auto;">
-                            <div class = "noti">
+                            <div class = "notification">
                                 <hr>
                                 <h5>Leadership</h5>
                                 <h6>Где блять все?</h6>
                                 <hr>
                             </div>
-                            <div class = "noti">
+                            <div class = "notification">
                                 <hr>
                                 <h5>Leadership</h5>
                                 <h6>Совещание в 15:00</h6>
@@ -60,16 +92,37 @@
         </script>
     </header>
     <section class="content" >
-        <div class="card">
-            <h1>Added Tasks</h1>
-            <hr>
-        </div>
-        <div class="card">
-            <h1>Status of Execution</h1>
-            <hr>
-            <div></div>
-        </div>
-        <div class="card">
+    <!-- для руководства-->
+            <div class="card" style = "margin-bottom: 20px; margin-right: 20px">
+                <h1>Added Tasks</h1>
+                <hr>
+                <div class = "whole_noti" >
+                    <div class = "noti">Покормить ежей</div>
+                    <div class ="noti_mess">Заказать ежикам столик в ресторане</div>
+                </div>
+                <br>
+                <div class = "whole_noti" >
+                    <div class = "noti">Устроить новоселье ежикам</div>
+                    <div class ="noti_mess">Купить шарики, подарки и шампанское</div>
+                </div>
+            </div>
+            <div class="card" style = "margin-bottom: 20px">
+                <h1>Completed Tasks</h1>
+                <hr>
+                <div class = "whole_noti" >
+                    <div class = "noti">Купить ежей</div>
+                    <div class ="noti_mess">Обеспечить каждого сотрудника персональным ежиком</div>
+
+                </div>
+                <br>
+                <div class = "whole_noti" >
+                    <div class = "noti">Устроить тусич с ежами</div>
+                    <div class ="noti_mess">Ну тут добавить нечего</div>
+
+                </div>
+            </div>
+        <div>
+            <div class="card">
             <h1>Tasks</h1>
             <hr>
             <form method="post">
@@ -78,6 +131,19 @@
                 <p><button type = "submit">ADD</button></p>
             </form>
         </div>
+        </div>
+        <!-- для сотрудников НЕ ГОТОВО
+        <div class="card" style = "margin-bottom: 20px">
+            <h1>Tasks</h1>
+            <hr>
+            <div class = "whole_noti" >
+                <div class = "noti">Покормить ежей</div>
+                <div class ="noti_mess">Заказать ежикам столик в ресторане</div>
+            </div>
+            <input class= "checkbox" type="checkbox" name="a" style = "margin-right: 0">
+
+
+        </div>-->
     </section>
     <footer class="footer">
         <p><br>Corporate social network, messenger / task-manager<br>Made by students of IIT CSU</p>
