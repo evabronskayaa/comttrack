@@ -8,46 +8,8 @@
     <link rel="stylesheet" href = "{% static 'authentication/css/tasks&messenger.css' %}">
     <link rel="icon" type="image" href="{% static 'authentication/images/icon1.png' %}">
 <style>
-    .checkbox{
-        height: 8px;
-    }
     footer{
-            /* Фиксированное положение */
-            left: 0; bottom: 0; /* Левый нижний угол */
-            width: 100%; /* Ширина слоя */
-    }
-    .noti{
-        width: 350px;
-        height: 25px;
-        text-align: left;
-        color: #000;
-        font-weight: 530;
-        font-size: 15px;
-    }
-    .noti_mess{
-        width: 350px;
-        text-align: left;
-        font-weight: 200;
-        font-size: 13px;
-        color: #3d3d3d;
-    }
-    .whole_noti{
-        background-color: #fff;
-        margin-bottom: 8px;
-        float: left;
-        border: 1px solid transparent;
-        border-radius: 3px;
-        -webkit-transition: all .3s linear;
-        -o-transition: all .3s linear;
-    }
-    .notification {
-        color: #000000;
-        background-color: rgba(42, 43, 120, 0.1);
-        margin: 5px;
-    }
-    h5, h6{
-        margin: 5px;
-        font-weight: 200;
+        position: relative;
     }
 </style>
 </head>
@@ -96,53 +58,94 @@
             <div class="card" style = "margin-bottom: 20px; margin-right: 20px">
                 <h1>Added Tasks</h1>
                 <hr>
-                <div class = "whole_noti" >
-                    <div class = "noti">Покормить ежей</div>
-                    <div class ="noti_mess">Заказать ежикам столик в ресторане</div>
+                <div class = "scroll" id="style">
+                    <div class = "whole_noti" >
+                        <div class = "noti">Покормить ежей</div>
+                        <div class ="noti_mess">Заказать ежикам столик в ресторане</div>
+                    </div>
+                    <br>
+                    <div class = "whole_noti" >
+                        <div class = "noti">Устроить новоселье ежикам</div>
+                        <div class ="noti_mess">Купить шарики, подарки и шампанское</div>
+                    </div>
+                    <br>
+                    <div class = "whole_noti" >
+                        <div class = "noti">Устроить новоселье ежикам</div>
+                        <div class ="noti_mess">Купить шарики, подарки и шампанское</div>
+                    </div>
+                    <br>
                 </div>
-                <br>
-                <div class = "whole_noti" >
-                    <div class = "noti">Устроить новоселье ежикам</div>
-                    <div class ="noti_mess">Купить шарики, подарки и шампанское</div>
-                </div>
+
             </div>
             <div class="card" style = "margin-bottom: 20px">
                 <h1>Completed Tasks</h1>
                 <hr>
-                <div class = "whole_noti" >
-                    <div class = "noti">Купить ежей</div>
-                    <div class ="noti_mess">Обеспечить каждого сотрудника персональным ежиком</div>
-
-                </div>
-                <br>
-                <div class = "whole_noti" >
-                    <div class = "noti">Устроить тусич с ежами</div>
-                    <div class ="noti_mess">Ну тут добавить нечего</div>
-
+                <div class = "scroll" id="style">
+                    <div class = "whole_noti" >
+                        <div class = "noti">Купить ежей</div>
+                        <div class ="noti_mess">Обеспечить каждого сотрудника персональным ежиком</div>
+                    </div>
+                    <br>
+                    <div class = "whole_noti" >
+                        <div class = "noti">Устроить тусич с ежами</div>
+                        <div class ="noti_mess">Ну тут добавить нечего</div>
+                    </div>
+                    <br>
+                    <div class = "whole_noti" >
+                        <div class = "noti">Купить ежей</div>
+                        <div class ="noti_mess">Обеспечить каждого сотрудника персональным ежиком</div>
+                    </div>
+                    <br>
+                    <div class = "whole_noti" >
+                        <div class = "noti">Устроить тусич с ежами</div>
+                        <div class ="noti_mess">Ну тут добавить нечего</div>
+                    </div>
+                    <br>
                 </div>
             </div>
         <div>
             <div class="card">
-            <h1>Tasks</h1>
-            <hr>
-            <form method="post">
-                {%  csrf_token %}
-                {{ form.as_p }}
-                <p><button type = "submit">ADD</button></p>
-            </form>
+                <h1>Tasks</h1>
+                <hr>
+                <form method="post">
+                    {%  csrf_token %}
+                    {{ form.as_p }}
+                    <p><button type = "submit">ADD</button></p>
+                </form>
+            </div>
         </div>
-        </div>
-        <!-- для сотрудников НЕ ГОТОВО
+        <!-- для сотрудников
         <div class="card" style = "margin-bottom: 20px">
             <h1>Tasks</h1>
             <hr>
-            <div class = "whole_noti" >
-                <div class = "noti">Покормить ежей</div>
-                <div class ="noti_mess">Заказать ежикам столик в ресторане</div>
-            </div>
-            <input class= "checkbox" type="checkbox" name="a" style = "margin-right: 0">
+            <form>
+                <input class= "checkbox" type="checkbox" name="a">
+                <label>
+                    <div class = "whole_noti" >
+                        <div class = "noti">Покормить ежей</div>
+                        <div class ="noti_mess">Заказать ежикам столик в ресторане</div>
+                    </div>
+                </label>
+                <br>
+                <input class= "checkbox" type="checkbox" name="a">
+                <label>
+                    <div class = "whole_noti" >
+                        <div class = "noti">Покормить ежей</div>
+                        <div class ="noti_mess">Заказать ежикам столик в ресторане</div>
+                    </div>
+                </label>
+                <br>
+                <input class= "checkbox" type="checkbox" name="a">
+                <label>
+                    <div class = "whole_noti" >
+                        <div class = "noti">Покормить ежей</div>
+                        <div class ="noti_mess">Заказать ежикам столик в ресторане</div>
+                    </div>
+                </label>
 
 
+                <p><button type = "submit">SEND</button></p>
+            </form>
         </div>-->
     </section>
     <footer class="footer">

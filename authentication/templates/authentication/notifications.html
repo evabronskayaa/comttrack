@@ -9,35 +9,7 @@
     <link rel="stylesheet" href = "{% static 'authentication/css/tasks&messenger.css' %}">
     <link rel="icon" type="image" href="{% static 'authentication/images/icon1.png' %}">
     <style>
-        footer{
 
-            left: 0; bottom: 0; /* Левый нижний угол */
-            width: 100%; /* Ширина слоя */
-        }
-        .noti{
-            width: 350px;
-            height: 25px;
-            text-align: left;
-            color: #000;
-            font-weight: 530;
-            font-size: 15px;
-        }
-        .noti_mess{
-            width: 350px;
-            text-align: left;
-            font-weight: 200;
-            font-size: 13px;
-            color: #3d3d3d;
-        }
-        .whole_noti{
-            background-color: #fff;
-            margin-bottom: 8px;
-            float: left;
-            border: 1px solid transparent;
-            border-radius: 3px;
-            -webkit-transition: all .3s linear;
-            -o-transition: all .3s linear;
-        }
 </style>
 </head>
 <body>
@@ -56,16 +28,24 @@
             <div class="card" style = "margin-bottom: 20px;" >
                 <h1>Notifications</h1>
                 <hr>
-                <div class = "whole_noti" >
-                    <div class = "noti">Leadership</div>
-                    <div class ="noti_mess">Где все?</div>
-                </div>
-                <br>
-                <div class = "whole_noti" >
-                    <div class = "noti">Leadership</div>
-                    <div class ="noti_mess">Совещание в 15:00</div>
-                </div>
+                <div class = "scroll" id="style">
+                    <div class = "whole_noti" >
+                        <div class = "noti">Leadership</div>
+                        <div class ="noti_mess">Слушайте, а где мой кот, не знаете?</div>
+                    </div>
+                    <br>
+                    <div class = "whole_noti" >
+                        <div class = "noti">Leadership</div>
+                        <div class ="noti_mess">Совещание в 15:00</div>
+                    </div>
+                    <br>
+                    <div class = "whole_noti" >
+                        <div class = "noti">Leadership</div>
+                        <div class ="noti_mess">Где все?</div>
+                    </div>
+                    <br>
                 <!--здесь должны отображаться уведомления -->
+                </div>
             </div>
         </div>
          <!--здесь руководство добавляет уведомления-->

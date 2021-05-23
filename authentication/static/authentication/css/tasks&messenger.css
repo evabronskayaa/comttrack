@@ -3,20 +3,21 @@ body, h1, p {
     font-size: 100%;
     font-weight: normal;
 }
+h5, h6{
+    margin: 5px;
+    font-weight: 200;
+}
 body, textarea{
     font-family: 'Helvetica', 'Arial', sans-serif;
      background-color: #2a2b78;
 }
 
 header, section{
-    margin-bottom: 50px;
+    margin-bottom: 30px;
 }
 .content {
     margin:auto ;
-
-
 }
-#about-popup{width:217px}
 .submenu-popup{
     background:#fff;
     border-radius:7px;
@@ -54,8 +55,6 @@ header, section{
     font-size: 55px;
     color: #ffffff;
 }
-
-
 hr {
     border: none; /* Убираем границу */
     background-color: whitesmoke; /* Цвет линии */
@@ -74,7 +73,7 @@ section{
     border-radius: 10px;
     color: white;
 }
-input, select, textarea, .task{
+input, select, textarea{
     width: 350px;
     height: 35px;
     background-color: #fff;
@@ -88,24 +87,7 @@ input, select, textarea, .task{
     -o-transition: all .3s linear;
     outline: none;
 }
-.task{
-    width: 350px;
-    height: 35px;
-    background-color: #fff;
-    color: #000;
-    margin-top: 8px;
-    font-weight: 200;
-    font-size: 15px;
-    border: 1px solid transparent;
-    border-radius: 3px;
-    -webkit-transition: all .3s linear;
-    -o-transition: all .3s linear;
-    outline: none;
-}
-
-
-
-  button{
+button{
     margin: 7px auto 5px;
     font-size: 15px;
     font-weight: 600;
@@ -118,7 +100,7 @@ input, select, textarea, .task{
     border-radius: 10px;
     outline: none;
     cursor: pointer;
-  }
+}
 
 footer{
     background-color: rgba(255, 255, 255, 0.16);
@@ -127,7 +109,7 @@ footer{
     text-align: center;
     font-size: 15px;
     margin-top: 80px;
-    position: fixed; /* Фиксированное положение */
+    position: relative; /* Фиксированное положение */
     left: 0; bottom: 0; /* Левый нижний угол */
     width: 100%; /* Ширина слоя */
 }
@@ -144,37 +126,62 @@ ul li a {
     cursor:pointer;
 }
 
-.noti_Container {
-        position:relative;
-    }
-
-.button-noti
-{
-    cursor:pointer;
-}
+.noti_Container { position:relative;}
+.button-noti { cursor:pointer;}
 .notifications {
-        display:none;
-        width:300px;
-        position:absolute;
-        top:30px;
-        left:0;
-        background:#FFF;
-        border:solid 1px rgba(100, 100, 100, .20);
-        -webkit-box-shadow:0 3px 8px rgba(0, 0, 0, .20);
-        z-index: 0;
-    }
-    /* AN ARROW LIKE STRUCTURE JUST OVER THE NOTIFICATIONS WINDOW */
-    .notifications:before {
-        content: '';
-        display:block;
-        width:0;
-        height:0;
-        color:transparent;
-        border:10px solid #CCC;
-        border-color:transparent transparent #FFF;
-        margin-top:-20px;
-        margin-left:10px;
-    }
+    display:none;
+    width:300px;
+    position:absolute;
+    top:30px;
+    left:0;
+    background:#FFF;
+    border:solid 1px rgba(100, 100, 100, .20);
+    -webkit-box-shadow:0 3px 8px rgba(0, 0, 0, .20);
+    z-index: 0;
+}
+/* AN ARROW LIKE STRUCTURE JUST OVER THE NOTIFICATIONS WINDOW */
+.notifications:before {
+    content: '';
+    display:block;
+    width:0;
+    height:0;
+    color:transparent;
+    border:10px solid #CCC;
+    border-color:transparent transparent #FFF;
+    margin-top:-20px;
+    margin-left:10px;
+}
+.noti{
+    width: 325px;
+    height: 25px;
+    text-align: left;
+    color: #000;
+    font-weight: 530;
+    font-size: 15px;
+}
+.noti_mess{
+    width: 325px;
+    text-align: left;
+    font-weight: 200;
+    font-size: 13px;
+    color: #3d3d3d;
+}
+.whole_noti{
+    background-color: #fff;
+    margin-bottom: 8px;
+    float: left;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    -webkit-transition: all .3s linear;
+    -o-transition: all .3s linear;
+    scroll-snap-align: start;
+    margin-right: 10px;
+}
+.notification {
+    color: #000000;
+    background-color: rgba(102, 103, 113, 0.1);
+    margin: 5px;
+}
 .seeAll {
     background: #F6F7F8;
     padding: 8px;
@@ -191,3 +198,24 @@ ul li a {
     color: rgba(103, 103, 156, 1);
     text-decoration: underline;
 }
+        .scroll {
+	        float: left;
+	        overflow-y: scroll;
+            height: 150px; /* высота нашего блока */
+            border: 1px solid rgba(193, 193, 193, 0); /* размер и цвет границы блока */
+        }
+
+        #style::-webkit-scrollbar{
+	        width: 12px;
+        }
+
+        #style::-webkit-scrollbar-thumb {
+	        border-radius: 10px;
+	        -webkit-box-shadow: inset 0 0 6px rgba(103, 103, 156, 0.7);
+	        background-color: #d0d0d0;
+        }
+
+        #style::-webkit-scrollbar-track {
+	        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	        border-radius: 10px;
+        }
