@@ -29,21 +29,13 @@
                 <h1>Notifications</h1>
                 <hr>
                 <div class = "scroll" id="style">
+                {% for notification in notifications %}
                     <div class = "whole_noti" >
-                        <div class = "noti">Leadership</div>
-                        <div class ="noti_mess">Слушайте, а где мой кот, не знаете?</div>
+                        <div class = "noti">{{notification.author}}</div>
+                        <div class ="noti_mess">{{notification.text}}</div>
                     </div>
                     <br>
-                    <div class = "whole_noti" >
-                        <div class = "noti">Leadership</div>
-                        <div class ="noti_mess">Совещание в 15:00</div>
-                    </div>
-                    <br>
-                    <div class = "whole_noti" >
-                        <div class = "noti">Leadership</div>
-                        <div class ="noti_mess">Где все?</div>
-                    </div>
-                    <br>
+                {% endfor %}
                 <!--здесь должны отображаться уведомления -->
                 </div>
             </div>
@@ -53,7 +45,8 @@
             <h1>Add Notifications</h1>
             <hr>
             <form method="post">
-                <textarea placeholder="Description"></textarea>
+                {% csrf_token %}
+                {{ form.as_p }}
                 <p><button type = "submit">ADD</button></p>
             </form>
         </div>

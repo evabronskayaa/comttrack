@@ -60,6 +60,7 @@
     </header>
     <section class="content" >
     <!-- для руководства-->
+        {% if status == 'Employer' %}
             <div class="card" style = "margin-bottom: 20px; margin-right: 20px">
                 <h1>Added Tasks</h1>
                 <hr>
@@ -119,8 +120,10 @@
                 </form>
             </div>
         </div>
+
         <!-- для руководства-->
         <!-- для сотрудников-->
+        {% else %}
         <div class="card" style = "margin-bottom: 20px">
             <h1>Tasks</h1>
             <hr>
@@ -153,6 +156,7 @@
                 <p><button type = "submit">SEND</button></p>
             </form>
         </div>
+        {% endif %}
         <!-- для сотрудников-->
     </section>
     <footer class="footer">

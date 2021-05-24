@@ -91,6 +91,9 @@ class CreateTaskForm(forms.ModelForm):
                                       empty_label="Employee", widget=forms.Select(
             attrs={'name': 'executor', 'style': 'width:355px;cursor: pointer;', 'class': 'input'}))
 
+    completed = forms.BooleanField(label="", widget=forms.CheckboxInput(
+        attrs={'name': 'a', 'class': 'checkbox', 'type': 'checkbox'}))
+
     class Meta:
         model = Task
         fields = ('title', 'description', 'executor')
@@ -100,6 +103,15 @@ class CreateTaskForm(forms.ModelForm):
         super(CreateTaskForm, self).__init__(*args, **kwargs)
 
 
+class TaskTrackForm(forms.ModelForm):
+    completed = forms.BooleanField(label="", widget=forms.CheckboxInput(
+        attrs={'name': 'a', 'class': 'checkbox', 'type': 'checkbox'}))
+
+    class Meta:
+        model = Task
+        fields = ('completed', )
+
+
 class CreateNotificationForm(forms.ModelForm):
     text = forms.CharField(label="", widget=forms.TextInput(
         attrs={'name': 'notification_text', 'placeholder': 'Description', 'class': 'input'}))
@@ -107,7 +119,7 @@ class CreateNotificationForm(forms.ModelForm):
     class Meta:
         model = Notification
         fields = ('text',)
-        
+
     def __init__(self, *args, **kwargs):
         self.author = kwargs.pop('author')
         super(CreateNotificationForm, self).__init__(*args, **kwargs)
