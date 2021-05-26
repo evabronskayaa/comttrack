@@ -9,6 +9,16 @@
     <link rel="stylesheet" href = "{% static 'authentication/css/tasks&messenger.css' %}">
     <link rel="icon" type="image" href="{% static 'authentication/images/icon1.png' %}">
     <style>
+        footer{
+    background-color: rgba(255, 255, 255, 0.2);
+    height: 70px;
+    color: #a1a4ad;
+    text-align: center;
+    font-size: 15px;
+    position: relative; /* Фиксированное положение */
+    left: 0; bottom: 0; /* Левый нижний угол */
+    width: 100%; /* Ширина слоя */
+}
 
 </style>
 </head>
@@ -20,6 +30,8 @@
                 <li class="noti_Container"><a class="main-menu-link" href="{% url 'notifications' %}">Notifications</a></li>
                 <li class="main-menu-item"><a class="main-menu-link" href="#">Messenger</a></li>
                 <li class="main-menu-item"><a class="main-menu-link" href="{% url 'add_task' %}">Tasks</a></li>
+                <li class="main-menu-item"><a class="main-menu-link" href="">Exit</a></li>
+                <!-- Никитааааааа, туту кнопка выхода есть-->
             </ul>
         </div>
     </header>

@@ -8,10 +8,37 @@
     <link rel="stylesheet" href = "{% static 'authentication/css/tasks&messenger.css' %}">
     <link rel="icon" type="image" href="{% static 'authentication/images/icon1.png' %}">
 <style>
+    .noti{
+        width: 325px;
+        margin-bottom: 7px;
+        text-align: left;
+        color: #000;
+        font-weight: 530;
+        font-size: 15px;
+    }
+
+    header, section{
+        margin-bottom: 0;
+    }
+    body, textarea{
+        font-family: 'Helvetica', 'Arial', sans-serif;
+        background-color: #ffffff;
+    }
+    header, section, footer{
+        background-color: #2a2b78;
+    }
+    footer{
+        background-color: rgba(42, 43, 120, 0.8);
+        margin-top: 0;
+    }
+    .scroll{
+        height: 200px;
+    }
     .checkbox{
-        width: auto;
-        height: 35px;
+        width: 20px;
+        height: 40px;
         float: left;
+        margin-right: 15px;
     }
     footer{
         position: relative;
@@ -47,6 +74,8 @@
                 </li>
                 <li class="main-menu-item"><a class="main-menu-link" href="#">Messenger</a></li>
                 <li class="main-menu-item"><a class="main-menu-link" href="{% url 'add_task' %}">Tasks</a></li>
+                <li class="main-menu-item"><a class="main-menu-link" href="">Exit</a></li>
+                <!-- Никитааааааа, туту кнопка выхода есть-->
             </ul>
         </div>
         <script>
@@ -65,7 +94,7 @@
                 <hr>
                 <div class = "scroll" id="style">
                     <div class = "whole_noti" >
-                        <div class = "noti">Покормить ежей</div>
+                        <div class = "noti">Покормить ежейffffffffffffffffffffffffffffffffffffffffffffffffffffffffff</div>
                         <div class ="noti_mess">Заказать ежикам столик в ресторане</div>
                     </div>
                     <br>
@@ -109,7 +138,7 @@
                 </div>
             </div>
         <div>
-            <div class="card">
+            <div class="card" style = "margin-bottom: 70px">
                 <h1>Tasks</h1>
                 <hr>
                 <form method="post">
@@ -121,7 +150,7 @@
         </div>
         <!-- для руководства-->
         <!-- для сотрудников-->
-        <div class="card" style = "margin-bottom: 20px">
+        <div class="card" style = "margin-bottom: 70px">
             <h1>Tasks</h1>
             <hr>
             <form>
