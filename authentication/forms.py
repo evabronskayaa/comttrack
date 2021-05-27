@@ -1,6 +1,9 @@
 from django import forms
+from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm, AuthenticationForm
 from .models import CustomUser, Task, Notification
+
+UserModel = get_user_model()
 
 
 class CustomUserCreationForm(UserCreationForm):
@@ -75,6 +78,7 @@ class LoginUserForm(AuthenticationForm):
         self.request = request
         self.user_cache = None
         super(AuthenticationForm, self).__init__(*args, **kwargs)
+        self.username_field = UserModel._meta.get_field(UserModel.USERNAME_FIELD)
         self.fields['username'].widget.attrs.update({'name': 'username', 'placeholder': 'Username', 'class': 'input'})
         self.fields['password'].widget.attrs.update({'name': 'password1', 'placeholder': 'Password', 'class': 'input'})
         self.fields['password'].label = ''

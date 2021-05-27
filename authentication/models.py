@@ -34,6 +34,8 @@ class Task(models.Model):
                                  related_name='user_executor')
     completed = models.BooleanField(default=False, verbose_name="Выполнена")
 
+    created_at = models.DateTimeField(auto_now_add=True)
+
     def __str__(self):
         return f"{self.title}. От {self.task_setter} для {self.executor}"
 

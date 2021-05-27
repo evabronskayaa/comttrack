@@ -16,11 +16,18 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.views.generic import TemplateView
-from authentication.views import success_login
+from authentication.views import success_login, SignUpView, LoginUser, TaskCreateView, NotificationCreateForm, \
+    user_logout, complete_task
 
 urlpatterns = [
     path('', success_login, name='home'),
     path('admin/', admin.site.urls),
-    path('authentication/', include('authentication.urls')),
-    #path('authentication/', include('django.contrib.auth.urls')),
+    #path('authentication/', include('authentication.urls')),
+    path('signup/', SignUpView.as_view(), name='signup'),
+    path('login/', LoginUser.as_view(redirect_authenticated_user=True), name='login'),
+    path('add_task/', TaskCreateView.as_view(), name='add_task'),
+    path('notifications/', NotificationCreateForm.as_view(),
+         name='notifications'),
+    path('logout/', user_logout, name='logout'),
+    path('complete_task/', complete_task, name='complete'),
 ]

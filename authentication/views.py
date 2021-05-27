@@ -1,27 +1,26 @@
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView
-from django.http import HttpResponse, HttpResponseRedirect
-from django.shortcuts import render
+from django.http import HttpResponseRedirect
 
 from django.urls import reverse_lazy, reverse
+from django.utils.decorators import method_decorator
 from django.views.generic.edit import CreateView
-from django.views.generic import TemplateView, View, FormView
-
+from django.contrib.auth import logout
 from .forms import CustomUserCreationForm, LoginUserForm, CreateTaskForm, CreateNotificationForm
 from .models import Task, Notification
 
-from django.contrib.auth.mixins import LoginRequiredMixin
-
 
 def get_tasks_for(username: str):
-    return Task.objects.filter(executor__username=username, completed=False)
+    return Task.objects.filter(executor__username=username, completed=False).order_by('-created_at')
 
 
 def get_completed_tasks():
-    return Task.objects.filter(completed=True)
+    return Task.objects.filter(completed=True).order_by('-created_at')
 
 
 def get_all_tasks():
-    return Task.objects.all()
+    return Task.objects.all().order_by('-created_at')
 
 
 def get_notifications():
@@ -33,6 +32,11 @@ class SignUpView(CreateView):
     success_url = reverse_lazy('login')
     template_name = 'authentication/signup.html'
 
+    def get(self, request, *args, **kwargs):
+        if request.user.is_authenticated:
+            return HttpResponseRedirect(reverse('add_task'))
+        return super(SignUpView, self).get(request, *args, **kwargs)
+
 
 class LoginUser(LoginView):
     form_class = LoginUserForm
@@ -41,25 +45,21 @@ class LoginUser(LoginView):
 
 
 def success_login(request):
-    name = request.user.username
-    return HttpResponse(f"<h1>You're successfully logged in, {name}!</h1>")
+    return HttpResponseRedirect(reverse('add_task'))
 
 
-class TaskView(View):
-    def dispatch(self, request, *args, **kwargs):
-        if request.user.status == 'Employer':
-            return TaskCreateView.as_view()(request, *args, **kwargs)
-        else:
-            return
+def user_logout(request):
+    logout(request)
+    return HttpResponseRedirect(reverse('login'))
 
 
 class TaskCreateView(LoginRequiredMixin, CreateView):
+
+    login_url = reverse_lazy('login')
+
     form_class = CreateTaskForm
     success_url = reverse_lazy('add_task')
     template_name = 'authentication/add_task.html'
-
-    login_url = 'authentication/'
-    redirect_field_name = 'login'
 
     def form_valid(self, form):
         self.object = form.save(commit=False)
@@ -96,7 +96,8 @@ def complete_task(request):
     return HttpResponseRedirect(reverse('add_task'))
 
 
-class NotificationCreateForm(CreateView):
+class NotificationCreateForm(LoginRequiredMixin, CreateView):
+    login_url = reverse_lazy('login')
     form_class = CreateNotificationForm
     success_url = reverse_lazy('notifications')
     template_name = 'authentication/notifications.html'
