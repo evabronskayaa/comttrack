@@ -9,18 +9,13 @@
     <link rel="stylesheet" href = "{% static 'authentication/css/tasks&messenger.css' %}">
     <link rel="icon" type="image" href="{% static 'authentication/images/icon1.png' %}">
     <style>
-        footer{
-    background-color: rgba(255, 255, 255, 0.2);
-    height: 70px;
-    color: #a1a4ad;
-    text-align: center;
-    font-size: 15px;
-    position: relative; /* Фиксированное положение */
-    left: 0; bottom: 0; /* Левый нижний угол */
-    width: 100%; /* Ширина слоя */
-}
-
-</style>
+        .scroll {
+	        float: left;
+	        overflow-y: scroll;
+            height: 300px; /* высота нашего блока */
+            border: 1px solid rgba(193, 193, 193, 0); /* размер и цвет границы блока */
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -40,21 +35,21 @@
             <div class="card" style = "margin-bottom: 20px;" >
                 <h1>Notifications</h1>
                 <hr>
-                <div class = "scroll" id="style">
+                <div class = "scroll" id="style" style="display: flex;flex-direction: column;">
                 {% for notification in notifications %}
                     <div class = "whole_noti" >
                         <div class = "noti">{{notification.author}}</div>
                         <div class ="noti_mess">{{notification.text}}</div>
                     </div>
-                    <br>
                 {% endfor %}
                 <!--здесь должны отображаться уведомления -->
                 </div>
             </div>
+            <style> footer{position:fixed}</style>
         </div>
          <!--здесь руководство добавляет уведомления-->
         {% if status == "Employer" %}
-        <div class="card">
+        <div class="card" style = "margin-bottom: 40px;">
             <h1>Add Notifications</h1>
             <hr>
             <form method="post">
@@ -63,6 +58,9 @@
                 <p><button type = "submit">ADD</button></p>
             </form>
         </div>
+        <style>
+            footer{position:relative}
+        </style>
         {% endif %}
     </section>
     <footer class="footer">

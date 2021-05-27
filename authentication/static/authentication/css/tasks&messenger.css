@@ -13,7 +13,7 @@ body, textarea{
 }
 
 header, section{
-    margin-bottom: 30px;
+    margin-bottom: 0;
 }
 .content {
     margin:auto ;
@@ -200,7 +200,7 @@ ul li a {
         .scroll {
 	        float: left;
 	        overflow-y: scroll;
-            height: 150px; /* высота нашего блока */
+            height: 300px; /* высота нашего блока */
             border: 1px solid rgba(193, 193, 193, 0); /* размер и цвет границы блока */
         }
 

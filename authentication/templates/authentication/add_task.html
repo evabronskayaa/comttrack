@@ -8,29 +8,6 @@
     <link rel="stylesheet" href = "{% static 'authentication/css/tasks&messenger.css' %}">
     <link rel="icon" type="image" href="{% static 'authentication/images/icon1.png' %}">
 <style>
-    .noti{
-        width: 325px;
-        margin-bottom: 7px;
-        text-align: left;
-        color: #000;
-        font-weight: 530;
-        font-size: 15px;
-    }
-
-    header, section{
-        margin-bottom: 0;
-    }
-    body, textarea{
-        font-family: 'Helvetica', 'Arial', sans-serif;
-        background-color: #ffffff;
-    }
-    header, section, footer{
-        background-color: #2a2b78;
-    }
-    footer{
-        background-color: rgba(42, 43, 120, 0.8);
-        margin-top: 0;
-    }
     .scroll{
         height: 200px;
     }
@@ -39,9 +16,6 @@
         height: 40px;
         float: left;
         margin-right: 15px;
-    }
-    footer{
-        position: relative;
     }
 </style>
 </head>
@@ -88,30 +62,28 @@
     <section class="content" >
     <!-- для руководства-->
         {% if status == 'Employer' %}
-            <div class="card" style = "margin-bottom: 20px; margin-right: 20px">
+            <div class="card" style = "margin-bottom: 20px; margin-right: 20px;">
                 <h1>Added Tasks</h1>
                 <hr>
-                <div class = "scroll" id="style">
+                <div class = "scroll" id="style" style = "display: flex;flex-direction: column;" >
                     {% for task in all_tasks %}
                     <div class = "whole_noti" >
                         <div class = "noti">{{task.title}} - {{ task.executor }}</div>
                         <div class ="noti_mess">{{task.description}}</div>
                     </div>
-                    <br>
                     {% endfor %}
                 </div>
 
             </div>
-            <div class="card" style = "margin-bottom: 20px">
+            <div class="card" style = "margin-bottom: 20px;">
                 <h1>Completed Tasks</h1>
                 <hr>
-                <div class = "scroll" id="style">
+                <div class = "scroll" id="style" style = "display: flex;flex-direction: column;">
                     {% for task in completed_tasks %}
                     <div class = "whole_noti" >
                         <div class = "noti">{{task.title}} - {{ task.executor }}</div>
                         <div class ="noti_mess">{{task.description}}</div>
                     </div>
-                    <br>
                     {% endfor %}
                 </div>
             </div>
@@ -126,15 +98,16 @@
                 </form>
             </div>
         </div>
-
+        <style>
+            footer{position:relative}
+        </style>
         <!-- для руководства-->
         <!-- для сотрудников-->
-        <div class="card" style = "margin-bottom: 70px">
         {% else %}
-        <div class="card" style = "margin-bottom: 20px">
+        <div class="card" style = "margin-bottom: 20px;">
             <h1>Tasks</h1>
             <hr>
-            <form method="post" action='{% url 'complete' %}'>
+            <form style = "display: flex;flex-direction: column;" method="post" action='{% url 'complete' %}'>
                 {% csrf_token %}
             {% for task in tasks %}
                 <input class= "checkbox" type="checkbox" name="{{ task.id }}">
@@ -144,11 +117,11 @@
                         <div class ="noti_mess">{{ task.description }}</div>
                     </div>
                 </label>
-                <br>
             {% endfor %}
                 <p><button type = "submit">SEND</button></p>
             </form>
         </div>
+        <style> footer{position:fixed}</style>
         {% endif %}
         <!-- для сотрудников-->
     </section>
