@@ -91,9 +91,6 @@ class CreateTaskForm(forms.ModelForm):
                                       empty_label="Employee", widget=forms.Select(
             attrs={'name': 'executor', 'style': 'width:355px;cursor: pointer;', 'class': 'input'}))
 
-    completed = forms.BooleanField(label="", widget=forms.CheckboxInput(
-        attrs={'name': 'a', 'class': 'checkbox', 'type': 'checkbox'}))
-
     class Meta:
         model = Task
         fields = ('title', 'description', 'executor')
@@ -109,7 +106,7 @@ class TaskTrackForm(forms.ModelForm):
 
     class Meta:
         model = Task
-        fields = ('completed', )
+        fields = ('completed',)
 
 
 class CreateNotificationForm(forms.ModelForm):

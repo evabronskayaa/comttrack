@@ -41,6 +41,7 @@
             </div>
         </div>
          <!--здесь руководство добавляет уведомления-->
+        {% if status == "Employer" %}
         <div class="card">
             <h1>Add Notifications</h1>
             <hr>
@@ -50,6 +51,7 @@
                 <p><button type = "submit">ADD</button></p>
             </form>
         </div>
+        {% endif %}
     </section>
     <footer class="footer">
         <p><br>Corporate social network, messenger / task-manager<br>Made by students of IIT CSU</p>

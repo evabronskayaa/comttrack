@@ -303,3 +303,6 @@ com_crashlytics_export_strings.xml
 crashlytics.properties
 crashlytics-build.properties
 fabric.properties
+/authentication/migrations/0001_initial.py
+/authentication/migrations/0003_notification.py
+/authentication/migrations/__init__.py
