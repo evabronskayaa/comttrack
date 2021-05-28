@@ -107,7 +107,7 @@
         <div class="card" style = "margin-bottom: 20px;">
             <h1>Tasks</h1>
             <hr>
-            <form style = "display: flex;flex-direction: column;" method="post" action='{% url 'complete' %}'>
+            <form method="post" action='{% url 'complete' %}'>
                 {% csrf_token %}
             {% for task in tasks %}
                 <input class= "checkbox" type="checkbox" name="{{ task.id }}">
