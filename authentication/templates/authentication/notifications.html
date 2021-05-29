@@ -16,7 +16,6 @@
 	        float: left;
 	        overflow-y: scroll;
             height: 300px; /* высота нашего блока */
-            border: 1px solid rgba(193, 193, 193, 0); /* размер и цвет границы блока */
         }
     </style>
 </head>
@@ -39,6 +38,9 @@
                 <h1>Notifications</h1>
                 <hr>
                 <div class = "scroll" id="style" style="display: flex;flex-direction: column;">
+                    <!--Сообщение о том что уведомлений нет-->
+                     <div style = "color: #c4c4c4;">You have no notifications</div>
+                    <!--Сообщение о том что уведомлений нет-->
                 {% for notification in notifications %}
                     <div class = "whole_noti" >
                         <div class = "noti">{{notification.author}}</div>

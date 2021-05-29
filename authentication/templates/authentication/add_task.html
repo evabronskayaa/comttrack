@@ -66,6 +66,9 @@
                 <h1>Added Tasks</h1>
                 <hr>
                 <div class = "scroll" id="style" style = "display: flex;flex-direction: column;" >
+                    <!--Сообщение о том что добавленных задач пока нет-->
+                     <div style = "color: #c4c4c4;" >You have no added tasks yet</div>
+                    <!--Сообщение о том что задач добавленных пока нет-->
                     {% for task in all_tasks %}
                     <div class = "whole_noti" >
                         <div class = "noti">{{task.title}} - {{ task.executor }}</div>
@@ -79,6 +82,9 @@
                 <h1>Completed Tasks</h1>
                 <hr>
                 <div class = "scroll" id="style" style = "display: flex;flex-direction: column;">
+                    <!--Сообщение о том что выполненных задач пока нет-->
+                     <div style = "color: #c4c4c4;">You have no completed tasks yet</div>
+                    <!--Сообщение о том что задач выполненных пока нет-->
                     {% for task in completed_tasks %}
                     <div class = "whole_noti" >
                         <div class = "noti">{{task.title}} - {{ task.executor }}</div>
@@ -109,6 +115,9 @@
             <hr>
             <form method="post" action='{% url 'complete' %}'>
                 {% csrf_token %}
+                <!--Сообщение о том что задач поставленных пока нет-->
+                <div style = "color: #c4c4c4;" >You have no tasks yet</div>
+                <!--Сообщение о том что задач поставленных пока нет-->
             {% for task in tasks %}
                 <input class= "checkbox" type="checkbox" name="{{ task.id }}">
                 <label>
@@ -117,6 +126,7 @@
                         <div class ="noti_mess">{{ task.description }}</div>
                     </div>
                 </label>
+                <br>
             {% endfor %}
                 <p><button type = "submit">SEND</button></p>
             </form>
