@@ -22,7 +22,7 @@
     <section class="content">
         <div class="card">
             <h1 class="section-title">Authorization</h1>
-            <form method="post">
+            <form method="post" style="display: flex;flex-direction: column;">
                 {%  csrf_token %}
                 {{ form.as_p }}
                 <p><button class="button-continue" type="submit">CONTINUE</button></p>
