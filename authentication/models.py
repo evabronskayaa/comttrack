@@ -26,7 +26,7 @@ class CustomUser(AbstractUser):
 
 
 class Task(models.Model):
-    title = models.CharField(max_length=20, verbose_name="Название задачи")
+    title = models.CharField(max_length=100, verbose_name="Название задачи")
     description = models.CharField(max_length=200, verbose_name="Описание задачи")
     task_setter = models.ForeignKey(CustomUser, on_delete=models.CASCADE, verbose_name="Составитель задачи",
                                     related_name='user_setter')
@@ -46,7 +46,7 @@ class Task(models.Model):
 class Notification(models.Model):
     author = models.ForeignKey(CustomUser, on_delete=models.CASCADE, verbose_name="Создатель уведомления",
                                related_name="notification_author")
-    text = models.CharField(max_length=150, verbose_name="Текст уведомления")
+    text = models.CharField(max_length=220, verbose_name="Текст уведомления")
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

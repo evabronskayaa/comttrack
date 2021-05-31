@@ -6,73 +6,84 @@
     <!--Все сделано на глаз-->
     <meta charset="UTF-8">
     <title>comttrack | Notifications</title>
-    <link rel="stylesheet" href = "{% static 'authentication/css/tasks&messenger.css' %}">
+    <link rel="stylesheet" href="{% static 'authentication/css/tasks&messenger.css' %}">
     <link rel="icon" type="image" href="{% static 'authentication/images/icon1.png' %}">
     <style>
-        .noti{
+        .noti {
             height: 30px
         }
-        .noti_mess{
+
+        .noti_mess {
             width: 325px;
         }
+
         .scroll {
-	        float: left;
-	        overflow-y: scroll;
+            float: left;
+            overflow-y: scroll;
             height: 300px; /* высота нашего блока */
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="content">
-            <img class="logo" src = "{% static 'authentication/images/logo3.png' %}" width="110" alt="">
-            <ul class="main-menu">
-                <li class="noti_Container"><a class="main-menu-link" href="{% url 'notifications' %}">Notifications</a></li>
-                <li class="main-menu-item"><a class="main-menu-link" href="#">Messenger</a></li>
-                <li class="main-menu-item"><a class="main-menu-link" href="{% url 'add_task' %}">Tasks</a></li>
-                <li class="main-menu-item"><a class="main-menu-link" href="{% url 'logout' %}">Exit</a></li>
-                <!-- Никитааааааа, туту кнопка выхода есть-->
-            </ul>
-        </div>
-    </header>
-    <section class="content">
-        <div>
-            <div class="card" style = "margin-bottom: 20px;" >
-                <h1>Notifications</h1>
-                <hr>
-                <div class = "scroll" id="style" style="display: flex;flex-direction: column;">
+<header>
+    <div class="content">
+        <img class="logo" src="{% static 'authentication/images/logo3.png' %}" width="110" alt="">
+        <ul class="main-menu">
+            <li class="noti_Container"><a class="main-menu-link" href="{% url 'notifications' %}">Notifications</a></li>
+            <li class="main-menu-item"><a class="main-menu-link" href="#">Messenger</a></li>
+            <li class="main-menu-item"><a class="main-menu-link" href="{% url 'add_task' %}">Tasks</a></li>
+            <li class="main-menu-item"><a class="main-menu-link" href="{% url 'logout' %}">Exit</a></li>
+            <!-- Никитааааааа, туту кнопка выхода есть-->
+        </ul>
+    </div>
+</header>
+<section class="content">
+    <div>
+        <div class="card" style="margin-bottom: 20px;">
+            <h1>Notifications</h1>
+            <hr>
+            <div class="scroll" id="style" style="display: flex;flex-direction: column;">
+                {% if notifications %}
                     <!--Сообщение о том что уведомлений нет-->
-                     <div style = "color: #c4c4c4;">You have no notifications</div>
+                    {% for notification in notifications %}
+                        <div class="whole_noti">
+                            <div class="noti">{{ notification.author }}</div>
+                            <div class="noti_mess">{{ notification.text }}</div>
+                        </div>
+                    {% endfor %}
+                {% else %}
                     <!--Сообщение о том что уведомлений нет-->
-                {% for notification in notifications %}
-                    <div class = "whole_noti" >
-                        <div class = "noti">{{notification.author}}</div>
-                        <div class ="noti_mess">{{notification.text}}</div>
-                    </div>
-                {% endfor %}
+                    <div style="color: #c4c4c4;">You have no notifications</div>
+                {% endif %}
                 <!--здесь должны отображаться уведомления -->
-                </div>
             </div>
-            <style> footer{position:fixed}</style>
         </div>
-         <!--здесь руководство добавляет уведомления-->
-        {% if status == "Employer" %}
-        <div class="card" style = "margin-bottom: 40px;">
+        <style> footer {
+            position: fixed
+        }</style>
+    </div>
+    <!--здесь руководство добавляет уведомления-->
+    {% if status == "Employer" %}
+        <div class="card" style="margin-bottom: 40px;">
             <h1>Add Notifications</h1>
             <hr>
             <form method="post">
                 {% csrf_token %}
                 {{ form.as_p }}
-                <p><button type = "submit">ADD</button></p>
+                <p>
+                    <button type="submit">ADD</button>
+                </p>
             </form>
         </div>
         <style>
-            footer{position:relative}
+            footer {
+                position: relative
+            }
         </style>
-        {% endif %}
-    </section>
-    <footer class="footer">
-        <p><br>Corporate social network, messenger / task-manager<br>Made by students of IIT CSU</p>
-    </footer>
+    {% endif %}
+</section>
+<footer class="footer">
+    <p><br>Corporate social network, messenger / task-manager<br>Made by students of IIT CSU</p>
+</footer>
 </body>
 </html>

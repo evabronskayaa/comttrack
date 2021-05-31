@@ -5,33 +5,53 @@
 <head>
     <meta charset="UTF-8">
     <title>comttrack | Registration</title>
-    <link rel="stylesheet" href = "{% static 'authentication/css/reg&auth.css' %}">
+    <link rel="stylesheet" href="{% static 'authentication/css/reg&auth.css' %}">
     <link rel="icon" type="image" href="{% static 'authentication/images/icon1.png' %}">
+
+
+    <style>
+        li {
+            list-style-type: none; /* Убираем маркеры */
+            word-wrap: break-word;
+            color: grey;
+            text-align: center;
+            display: inline-block;
+            float: left;
+        }
+
+        ul{
+            word-wrap: break-word;
+            text-align: center;
+            list-style: inside;
+            display: block;
+            width: 300px;
+        }
+    </style>
 
 </head>
 <body>
-    <header>
-        <div class="overlay">
-            <!--<h1 class="header-title" >comttrack</h1>-->
-            <img class="header-title" src = "{% static 'authentication/images/logo2.png' %}" width="140" alt="">
-        </div>
-        <!--<div class="overlay">
-            <h1 class="header-title2" style="">company task tracker</h1>
-        </div>-->
-    </header>
-    <section class="content">
-        <div class="card">
-            <h1 class="section-title">Registration</h1>
-            <form method="post" style="display: flex;flex-direction: column;">
-                {%  csrf_token %}
-                {{ form.as_p }}
-                <button type="submit">CONTINUE</button>
-            </form>
-        </div>
-        <p><a href="{% url 'login' %}">Do you have account?</a></p>
-    </section>
-    <footer>
-        <p>Corporate social network, messenger / task-manager<br>Made by students of IIT CSU</p>
-    </footer>
+<header>
+    <div class="overlay">
+        <!--<h1 class="header-title" >comttrack</h1>-->
+        <img class="header-title" src="{% static 'authentication/images/logo2.png' %}" width="140" alt="">
+    </div>
+    <!--<div class="overlay">
+        <h1 class="header-title2" style="">company task tracker</h1>
+    </div>-->
+</header>
+<section class="content">
+    <div class="card">
+        <h1 class="section-title">Registration</h1>
+        <form method="post" style="display: flex;flex-direction: column;">
+            {% csrf_token %}
+            {{ form }}
+            <button type="submit">CONTINUE</button>
+        </form>
+    </div>
+    <p><a href="{% url 'login' %}">Do you have account?</a></p>
+</section>
+<footer>
+    <p>Corporate social network, messenger / task-manager<br>Made by students of IIT CSU</p>
+</footer>
 </body>
 </html>

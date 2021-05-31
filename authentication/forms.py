@@ -83,6 +83,7 @@ class LoginUserForm(AuthenticationForm):
         self.fields['password'].widget.attrs.update({'name': 'password1', 'placeholder': 'Password', 'class': 'input'})
         self.fields['password'].label = ''
         self.fields['username'].label = ''
+        self.error_messages['invalid_login'] = 'Please enter correct values'
 
 
 class CreateTaskForm(forms.ModelForm):
@@ -91,7 +92,8 @@ class CreateTaskForm(forms.ModelForm):
     description = forms.CharField(label="", widget=forms.Textarea(
         attrs={'name': 'description', 'placeholder': 'Description', 'class': 'input'}))
 
-    executor = forms.ModelChoiceField(label="", queryset=CustomUser.objects.all().order_by('first_name'),
+    executor = forms.ModelChoiceField(label="",
+                                      queryset=CustomUser.objects.filter(status="Employee").order_by('first_name'),
                                       empty_label="Employee", widget=forms.Select(
             attrs={'name': 'executor', 'style': 'width:355px;cursor: pointer;', 'class': 'input'}))
 
