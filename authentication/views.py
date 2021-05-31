@@ -20,7 +20,7 @@ def get_completed_tasks():
 
 
 def get_all_tasks():
-    return Task.objects.all().order_by('-created_at')
+    return Task.objects.filter(completed=False).order_by('-created_at')
 
 
 def get_notifications():

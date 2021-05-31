@@ -6,33 +6,39 @@
 <head>
     <meta charset="UTF-8">
     <title>comttrack | Authorization</title>
-    <link rel="stylesheet" href = "{% static 'authentication/css/reg&auth.css' %}">
+    <link rel="stylesheet" href="{% static 'authentication/css/reg&auth.css' %}">
     <link rel="icon" type="image" href="../images/icon1.png">
 </head>
 <body>
-    <header>
-        <div class="overlay">
-            <!--<h1 class="header-title" >comttrack</h1>-->
-             <img class="header-title" src = "{% static 'authentication/images/logo2.png' %}" width="140" alt="">
-        </div>
-        <!--<div class="overlay">
-            <h1 class="header-title2" style="">company task tracker</h1>
-        </div>-->
-    </header>
-    <section class="content">
-        <div class="card">
-            <h1 class="section-title">Authorization</h1>
-            <form method="post" style="display: flex;flex-direction: column;">
-                {%  csrf_token %}
-                {{ form.as_p }}
-                <p><button class="button-continue" type="submit">CONTINUE</button></p>
-            </form>
-        </div>
-        <p><a class="section-link" href="{% url 'signup' %}">Don't you have account?</a></p>
-    </section>
-    <footer class="footer">
-        <p>Corporate social network, messenger / task-manager</p>
-        <p>Made by students of IIT CSU</p>
-    </footer>
+<header>
+    <div class="overlay">
+        <!--<h1 class="header-title" >comttrack</h1>-->
+        <img class="header-title" src="{% static 'authentication/images/logo2.png' %}" width="140" alt="">
+    </div>
+    <!--<div class="overlay">
+        <h1 class="header-title2" style="">company task tracker</h1>
+    </div>-->
+</header>
+<section class="content">
+    <div class="card">
+        <h1 class="section-title">Authorization</h1>
+        <form method="post" style="display: flex;flex-direction: column;">
+            {% csrf_token %}
+            {% for field, error in form.errors.items %}
+                {% if field != '__all__' %}{{ field }}{% endif %}
+                {{ error | striptags }}
+            {% endfor %}
+            {{ form }}
+            <p>
+                <button class="button-continue" type="submit">CONTINUE</button>
+            </p>
+        </form>
+    </div>
+    <p><a class="section-link" href="{% url 'signup' %}">Don't you have account?</a></p>
+</section>
+<footer class="footer">
+    <p>Corporate social network, messenger / task-manager</p>
+    <p>Made by students of IIT CSU</p>
+</footer>
 </body>
 </html>
