@@ -83,8 +83,6 @@ class LoginUserForm(AuthenticationForm):
         self.fields['password'].widget.attrs.update({'name': 'password1', 'placeholder': 'Password', 'class': 'input'})
         self.fields['password'].label = ''
         self.fields['username'].label = ''
-        # self.error_messages['invalid_login'] = ''
-        # self.error_messages['inactive'] = ''
 
 
 class CreateTaskForm(forms.ModelForm):

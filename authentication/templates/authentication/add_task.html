@@ -5,172 +5,141 @@
 <head>
     <meta charset="UTF-8">
     <title>comttrack | Tasks</title>
-    <link rel="stylesheet" href="{% static 'authentication/css/tasks&messenger.css' %}">
+    <link rel="stylesheet" href = "{% static 'authentication/css/tasks&messenger.css' %}">
     <link rel="icon" type="image" href="{% static 'authentication/images/icon1.png' %}">
-    <style>
-        .scroll {
-            height: 200px;
-        }
-
-        .checkbox {
-            width: 20px;
-            height: 40px;
-            float: left;
-            margin-right: 15px;
-        }
-    </style>
+<style>
+    .noti{
+        height: 30px
+    }
+    .scroll{
+        height: 200px;
+    }
+    .checkbox{
+        width: 20px;
+        height: 30px;
+        float: left;
+        margin-right: 15px;
+    }
+</style>
 </head>
 <body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-<header>
-    <div class="content">
-        <img class="logo" src="{% static 'authentication/images/logo3.png' %}" width="110" alt="">
-        <ul class="main-menu">
-            <li class="noti_Container">
-                <div class="button-noti"><a class="main-menu-link" href="{% url 'notifications' %}">Notifications</a>
-                </div>
-                <div class="notifications">
-                    <div style="height:auto;">
-                        {% if notifications %}
+    <header>
+        <div class="content">
+            <img class="logo" src = "{% static 'authentication/images/logo3.png' %}" width="110" alt="">
+            <ul class="main-menu">
+                <li class="noti_Container">
+                    <div class="button-noti"><a class="main-menu-link" href="{% url 'notifications' %}">Notifications</a></div>
+                    <div class="notifications">
+                        <div style="height:auto;">
                             {% for notification in notifications %}
-                                {% if forloop.counter <= 3 %}
-                                    <div class="notification">
-                                        <hr>
-                                        <h5>{{ notification.author }}</h5>
-                                        <h6>{{ notification.text }}</h6>
-                                        <hr>
-                                    </div>
-                                {% endif %}
-                            {% endfor %}
-                        {% else %}
-                            <div class="notification">
+                            {% if forloop.counter <= 3 %}
+                            <div class = "notification">
                                 <hr>
-                                <h5>Пусто</h5>
-                                <h6>И здесь тоже пока пусто :(</h6>
+                                <h5>{{ notification.author }}</h5>
+                                <h6>{{ notification.text }}</h6>
                                 <hr>
                             </div>
-                        {% endif %}
-                        <!--здесь должны отображаться уведомления -->
+                            {% endif %}
+                            {% endfor %}
+                            <!--здесь должны отображаться уведомления -->
+                        </div>
+                        <div class="seeAll"><a href="{% url 'notifications' %}">See All</a></div>
                     </div>
-                    <div class="seeAll"><a href="{% url 'notifications' %}">See All</a></div>
-                </div>
-            </li>
-            <li class="main-menu-item"><a class="main-menu-link" href="#">Messenger</a></li>
-            <li class="main-menu-item"><a class="main-menu-link" href="{% url 'add_task' %}">Tasks</a></li>
-            <li class="main-menu-item"><a class="main-menu-link" href="{% url 'logout' %}">Exit</a></li>
-            <!-- Никитааааааа, туту кнопка выхода есть-->
-        </ul>
-    </div>
-    <script>
-        $(document).ready(function () {
-            $('.button-noti').click(function () {
-                $('.notifications').fadeToggle('fast', 'linear');
-                return false
+                </li>
+                <li class="main-menu-item"><a class="main-menu-link" href="#">Messenger</a></li>
+                <li class="main-menu-item"><a class="main-menu-link" href="{% url 'add_task' %}">Tasks</a></li>
+                <li class="main-menu-item"><a class="main-menu-link" href="{% url 'logout' %}">Exit</a></li>
+                <!-- Никитааааааа, туту кнопка выхода есть-->
+            </ul>
+        </div>
+        <script>
+            $(document).ready(function () {
+                $('.button-noti').click(function () {
+                    $('.notifications').fadeToggle('fast', 'linear');
+                    return false
+                });
             });
-        });
-    </script>
-</header>
-<section class="content">
+        </script>
+    </header>
+    <section class="content" >
     <!-- для руководства-->
-    {% if status == 'Employer' %}
-        <div class="card" style="margin-bottom: 20px; margin-right: 20px;">
-            <h1>Added Tasks</h1>
-            <hr>
-            <div class="scroll" id="style" style="display: flex;flex-direction: column;">
-                {% if all_tasks %}
+        {% if status == 'Employer' %}
+            <div class="card" style = "margin-bottom: 20px; margin-right: 20px;">
+                <h1>Added Tasks</h1>
+                <hr>
+                <div class = "scroll" id="style" style = "display: flex;flex-direction: column;" >
+                    <!--Сообщение о том что добавленных задач пока нет-->
+                     <div style = "color: #c4c4c4;" >You have no added tasks yet</div>
+                    <!--Сообщение о том что задач добавленных пока нет-->
                     {% for task in all_tasks %}
-                        <div class="whole_noti">
-                            <div class="noti">{{ task.title }} - {{ task.executor }}</div>
-                            <div class="noti_mess">{{ task.description }}</div>
-                        </div>
-                    {% endfor %}
-                {% else %}
-                    <div class="whole_noti">
-                        <div class="noti">Нет задач</div>
-                        <div class="noti_mess">Пока нет поставленных задач</div>
+                    <div class = "whole_noti" >
+                        <div class = "noti">{{task.title}} - {{ task.executor }}</div>
+                        <div class ="noti_mess">{{task.description}}</div>
                     </div>
-                {% endif %}
-            </div>
+                    {% endfor %}
+                </div>
 
-        </div>
-        <div class="card" style="margin-bottom: 20px;">
-            <h1>Completed Tasks</h1>
-            <hr>
-            <div class="scroll" id="style" style="display: flex;flex-direction: column;">
-                {% if completed_tasks %}
-                    {% for task in completed_tasks %}
-                        <div class="whole_noti">
-                            <div class="noti">{{ task.title }} - {{ task.executor }}</div>
-                            <div class="noti_mess">{{ task.description }}</div>
-                        </div>
-                    {% endfor %}
-                {% else %}
-                    <div class="whole_noti">
-                        <div class="noti">Нет задач</div>
-                        <div class="noti_mess">Пока нет выполненных задач</div>
-                    </div>
-                {% endif %}
             </div>
-        </div>
+            <div class="card" style = "margin-bottom: 20px;">
+                <h1>Completed Tasks</h1>
+                <hr>
+                <div class = "scroll" id="style" style = "display: flex;flex-direction: column;">
+                    <!--Сообщение о том что выполненных задач пока нет-->
+                     <div style = "color: #c4c4c4;">You have no completed tasks yet</div>
+                    <!--Сообщение о том что задач выполненных пока нет-->
+                    {% for task in completed_tasks %}
+                    <div class = "whole_noti" >
+                        <div class = "noti">{{task.title}} - {{ task.executor }}</div>
+                        <div class ="noti_mess">{{task.description}}</div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
         <div>
-            <div class="card" style="margin-bottom: 70px">
+            <div class="card" style = "margin-bottom: 70px">
                 <h1>Tasks</h1>
                 <hr>
                 <form method="post">
-                    {% csrf_token %}
+                    {%  csrf_token %}
                     {{ form.as_p }}
-                    <p>
-                        <button type="submit">ADD</button>
-                    </p>
+                    <p><button type = "submit">ADD</button></p>
                 </form>
             </div>
         </div>
         <style>
-            footer {
-                position: relative
-            }
+            footer{position:relative}
         </style>
         <!-- для руководства-->
         <!-- для сотрудников-->
-    {% else %}
-        <div class="card" style="margin-bottom: 20px;">
+        {% else %}
+        <div class="card" style = "margin-bottom: 20px;">
             <h1>Tasks</h1>
             <hr>
-            <form style="display: flex;flex-direction: column;" method="post" action='{% url 'complete' %}'>
+            <form method="post" action='{% url 'complete' %}'>
                 {% csrf_token %}
-                {% if tasks %}
-                    {% for task in tasks %}
-                        <input class="checkbox" type="checkbox" name="{{ task.id }}">
-                        <label>
-                            <div class="whole_noti">
-                                <div class="noti">{{ task.title }}
-                                    от {{ task.task_setter.first_name }} {{ task.task_setter.last_name }}
-                                    - {{ task.task_setter.department }}</div>
-                                <div class="noti_mess">{{ task.description }}</div>
-                            </div>
-                        </label>
-                    {% endfor %}
-                    <p>
-                        <button type="submit">SEND</button>
-                    </p>
-                {% else %}
-                    <label>
-                        <div class="whole_noti">
-                            <div class="noti">Задач нет</div>
-                            <div class="noti_mess">У тебя еще нет новых задач</div>
-                        </div>
-                    </label>
-                {% endif %}
+                <!--Сообщение о том что задач поставленных пока нет-->
+                <div style = "color: #c4c4c4;" >You have no tasks yet</div>
+                <!--Сообщение о том что задач поставленных пока нет-->
+            {% for task in tasks %}
+                <input class= "checkbox" type="checkbox" name="{{ task.id }}">
+                <label>
+                    <div class = "whole_noti" >
+                        <div class = "noti">{{ task.title }} от {{ task.task_setter.first_name }} {{ task.task_setter.last_name }} - {{ task.task_setter.department }}</div>
+                        <div class ="noti_mess">{{ task.description }}</div>
+                    </div>
+                </label>
+                <br>
+            {% endfor %}
+                <p><button type = "submit">SEND</button></p>
             </form>
         </div>
-        <style> footer {
-            position: fixed
-        }</style>
-    {% endif %}
-    <!-- для сотрудников-->
-</section>
-<footer class="footer">
-    <p><br>Corporate social network, messenger / task-manager<br>Made by students of IIT CSU</p>
-</footer>
+        <style> footer{position:fixed}</style>
+        {% endif %}
+        <!-- для сотрудников-->
+    </section>
+    <footer class="footer">
+        <p><br>Corporate social network, messenger / task-manager<br>Made by students of IIT CSU</p>
+    </footer>
 </body>
 </html>

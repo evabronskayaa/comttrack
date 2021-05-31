@@ -25,7 +25,7 @@ urlpatterns = [
     #path('authentication/', include('authentication.urls')),
     path('signup/', SignUpView.as_view(), name='signup'),
     path('login/', LoginUser.as_view(redirect_authenticated_user=True), name='login'),
-    path('tasks/', TaskCreateView.as_view(), name='add_task'),
+    path('add_task/', TaskCreateView.as_view(), name='add_task'),
     path('notifications/', NotificationCreateForm.as_view(),
          name='notifications'),
     path('logout/', user_logout, name='logout'),
