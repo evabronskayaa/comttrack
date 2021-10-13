@@ -34,6 +34,7 @@ class SignUpView(CreateView):
 
     def get(self, request, *args, **kwargs):
         if request.user.is_authenticated:
+            print('hui')
             return HttpResponseRedirect(reverse('add_task'))
         return super(SignUpView, self).get(request, *args, **kwargs)
 
