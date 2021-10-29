@@ -1,5 +1,6 @@
 # comttrack
 [Презентация](https://docs.google.com/presentation/d/1q8Li2l4po_Q8-aUF3VSB8iH3M6gDPHtHlqljwlovrck/edit#slide=id.gdc446601b1_0_126)
+
 Корпоративная социальная сеть, менеджер, таск-менеджер.
 Разработана для IT-компаний,чтобы:
 
